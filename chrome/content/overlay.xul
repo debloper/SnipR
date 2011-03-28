@@ -6,7 +6,7 @@
   <script type="application/javascript" src="chrome://snipr/content/overlay.js" />
   
   <hbox id="identity-box-inner">
-    <image id="snipr-firefox-crosshair" />
+    <image id="snipr-crosshair" />
   </hbox>
   
 </overlay>

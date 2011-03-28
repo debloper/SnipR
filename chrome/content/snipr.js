@@ -1,6 +1,6 @@
 var pushDOM = {
   createNodes: function(arg1, arg2) {
-	  pushDOM.pushHostData(arg1, arg2);
+	  pushDOM.pushHostData(arg1);
 	  pushDOM.pushLocationData(arg2);
 	  pushDOM.pushTimezoneData(arg2);
   },
@@ -16,14 +16,9 @@ var pushDOM = {
 	// I don't quite like the marker, may put it if users demand.
   },
   
-  pushHostData: function(arg1, arg2) {
-	  if(arg1["IP"]!=""){
-		  document.getElementById("hostip").innerHTML = arg1["IP"];
-		  document.getElementById("hosturl").innerHTML = arg1["HOST"];
-	  } else {
-		  document.getElementById("hostip").innerHTML = arg2["Ip"];
-		  document.getElementById("hosturl").innerHTML = "Your Location Data";
-	  }
+  pushHostData: function(arg) {
+		  document.getElementById("hostip").innerHTML = arg["IP"];
+		  document.getElementById("hosturl").innerHTML = arg["HOST"];
   },
   
   pushLocationData: function(args) {
@@ -61,7 +56,7 @@ function getIP(host) {
 function getGeoData(ip) {
 	ipApi = "http://api.ipinfodb.com/v2/ip_query.php";
 	ipQuery = "?key=555040b100942b17a9d199d9759b3b46afa36fa05d6e72408c51cfeaf70d7344&output=json&timezone=true&ip=";
-	queryUrl = ipApi + ipQuery + ip +"&"+ Math.random();
+	queryUrl = ipApi + ipQuery + ip +"&rand="+ Math.random();
 	var XHreq = new XMLHttpRequest();
 	XHreq.open("GET", queryUrl, false);
 	XHreq.send(null);

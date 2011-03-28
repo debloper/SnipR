@@ -11,7 +11,7 @@ body {
 	width: inherit;
 	min-width: 200px;
 	height: 50%;
-	bottom: 10px;
+	bottom: 5%;
 	border: #666 solid thin;
 	position: fixed;
 	display: block;
@@ -34,8 +34,7 @@ body {
 #info_container {
 	width: inherit;
 	min-width: 200px;
-	height: 40%;
-	top: 20px;
+	bottom: 65%;
 	position: fixed;
 	display: table;
 	margin: auto;
@@ -45,21 +44,21 @@ body {
 
 #logo-container {
 	width: 25%;
-	min-width: 200px;
-	height: 40%;
-	bottom: 55%;
+	height: 100%;
+	bottom: 63%;
 	position: fixed;
 	display: block;
-	background-image: url("chrome://snipr/skin/snipr-logo.png");
+	background-image: url("http://lh4.ggpht.com/_UGgTJdIJluE/TTKQ1KnFWaI/AAAAAAAAAGM/NgFm3HvELMU/snipr-logo.png");
 	background-position: left bottom;
 	background-origin: border-box;
 	background-repeat: no-repeat;
+	-moz-background-size: contain;
 	background-size: contain;
 }
 
 #details_table {
 	width: auto;
-	min-width: 200px;
+	min-width: 360px;
 	max-width: 600px;
 	height: inherit;
 	position: relative;
@@ -85,6 +84,7 @@ body {
 	font-size: 1.1em;
 	color:#333;
 	padding: 0.25em 0em;
+	min-width: 300px;
 }
 
 .detail_separator {

@@ -1,5 +1,4 @@
 content   snipr                 chrome/content/
 skin      snipr   classic/1.0   chrome/skin/
 
-override  chrome://snipr/content/overlay.xul     chrome://snipr/content/underlay.xul   application={a23983c0-fd0e-11dc-95ff-0800200c9a66}
 overlay   chrome://browser/content/browser.xul   chrome://snipr/content/overlay.xul
