@@ -1,5 +1,10 @@
 Changelog
 =========
+v1.2.0 - v1.2.5
+---------------
+*	XmlHttpRequest has been changed from synchronous to asynchronous to avoid (theoritically-)accidental UI freeze.
+*	Google Maps default Zoom level has been increased to level 10.
+
 v1.0.0 - v1.2.0
 ---------------
 *	SnipR is now split into "SnipR" & "SnipR Mobile", dedicated for Firefox & Fennec respectively.

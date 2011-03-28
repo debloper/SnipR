@@ -8,7 +8,7 @@ var pushDOM = {
   mapInitialize: function(lat, lng) {
 	var latlng = new google.maps.LatLng(lat, lng);
 	var myOptions = {
-		zoom: 4,
+		zoom: 10,
 		center: latlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
@@ -58,15 +58,20 @@ function getGeoData(ip) {
 	ipQuery = "?key=555040b100942b17a9d199d9759b3b46afa36fa05d6e72408c51cfeaf70d7344&output=json&timezone=true&ip=";
 	queryUrl = ipApi + ipQuery + ip +"&rand="+ Math.random();
 	var XHreq = new XMLHttpRequest();
-	XHreq.open("GET", queryUrl, false);
+	XHreq.open("GET", queryUrl, true);
 	XHreq.send(null);
-	XHreqData = JSON.parse(XHreq.responseText);
-	return XHreqData;
+	XHreq.onreadystatechange=function()
+	{
+		if (XHreq.readyState==4 && XHreq.status==200)
+		{
+			XHreqData = JSON.parse(XHreq.responseText);
+			pushDOM.createNodes(hostKey,XHreqData);
+			pushDOM.mapInitialize(XHreqData["Latitude"], XHreqData["Longitude"]);
+		}
+	}
 }
 
 function tabInit() {
 	hostKey = getIP(window.parent.location);
 	hostGeoData = getGeoData(hostKey["IP"]);
-	pushDOM.mapInitialize(hostGeoData["Latitude"], hostGeoData["Longitude"]);
-	pushDOM.createNodes(hostKey,hostGeoData);
 }
