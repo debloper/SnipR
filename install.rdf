@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
   <Description about="urn:mozilla:install-manifest">
-    <em:id>guid@snipr.mail</em:id>
+    <em:id>guid@sniprmobile.mail</em:id>
     <em:type>2</em:type>
-    <em:name>SnipR</em:name>
+    <em:name>SnipR Mobile</em:name>
     <em:version>1.0.0</em:version>
 	<em:iconURL>chrome://snipr/skin/icon48.png</em:iconURL>
-	<em:homepage>http://debloper.blogspot.com/p/snipr.html</em:homepage>
+	<em:homepageURL>http://debloper.blogspot.com/p/snipr.html</em:homepageURL>
 
     <em:creator>Debloper</em:creator>
     <em:contributor>#extdev@irc.mozilla.org</em:contributor>
-    <em:description>Server Network IP Resolver</em:description>
+    <em:description>Server Network IP Resolver for Firefox Mobile (Fennec)</em:description>
 
     <em:targetApplication>
       <Description>
