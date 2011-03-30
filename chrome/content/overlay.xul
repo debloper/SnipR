@@ -5,14 +5,15 @@
   
   <script type="application/javascript" src="chrome://snipr/content/overlay.js" />
   
-  <box id="identity-box">
-    <image id="snipr-crosshair" pack="end" />
-  </box>
+  <hbox id="identity-box-inner">
+    <image id="snipr-crosshair" />
+  </hbox>
   
-  <hbox id="identity-popup-container">
-    <vbox align="center">
-      <button id="identity-popup-snipr-info-button" label="SnipR" oncommand="snipr.onTrigger();"/>
-    </vbox>
+  <hbox id="identity-popup-button-container">
+    <button id="identity-popup-snipr-info-button"
+			insertbefore="identity-popup-more-info-button"
+			label="SnipR Information"
+			oncommand="snipr.onTrigger();" />
   </hbox>
   
 </overlay>
