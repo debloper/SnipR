@@ -2,7 +2,6 @@ window.addEventListener("load", function(event) { snipr.onLoad(event) }, false);
 
 var snipr = {
   onLoad: function(event) {
-    // initialization code
     this.initialized = true;
     this.strings = document.getElementById("snipr-overlay");
   },
@@ -16,7 +15,7 @@ var snipr = {
 	while (DNS && DNS.hasMore()) { ips.push(DNS.getNextAddrAsString()); }
 	ip = ips[0];
 	ownerTab = gBrowser.selectedTab;
-	sniprTab = gBrowser.addTab("chrome://snipr/content/snipr.xul?"+host+"#"+ip, {referrerURI:gBrowser.currentURI, owner:ownerTab});
+	sniprTab = gBrowser.addTab("chrome://snipr/content/firefox.htm?"+host+"#"+ip, {referrerURI:gBrowser.currentURI, owner:ownerTab});
 	gBrowser.selectedTab = sniprTab;
 	},
 	
@@ -29,7 +28,7 @@ var snipr = {
 	while (DNS && DNS.hasMore()) { ips.push(DNS.getNextAddrAsString()); }
 	ip = ips[0];
 	ownerTab = Browser.selectedTab;
-	sniprTab = Browser.addTab("chrome://snipr/content/snipr.xul?"+host+"#"+ip);
+	sniprTab = Browser.addTab("chrome://snipr/content/fennec.htm?"+host+"#"+ip);
 	Browser.selectedTab = sniprTab;
 	}
 };

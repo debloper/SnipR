@@ -10,7 +10,7 @@
   </hbox>
   
   <hbox id="identity-popup-button-container">
-    <button id="identity-popup-snipr-info-button" insertbefore="identity-popup-more-info-button" label="SnipR Information" oncommand="snipr.FxTrigger();" />
+    <button id="firefox-snipr-info-button" insertbefore="identity-popup-more-info-button" label="SnipR Information" oncommand="snipr.FxTrigger();" />
   </hbox>
   
 </overlay>

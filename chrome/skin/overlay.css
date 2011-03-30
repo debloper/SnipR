@@ -1,10 +1,10 @@
 #snipr-crosshair
 {
   list-style-image: url("chrome://snipr/skin/icon16.png");
-  background: url("chrome://snipr/skin/icon20-glow.png") center !important;
+  background: url("chrome://snipr/skin/icon20-glow.png") center no-repeat !important;
   padding: 0px 2px;
 }
-#identity-popup-snipr-info-button {
+#firefox-snipr-info-button {
   margin-top: 6px;
   margin-bottom: 0;
   -moz-margin-end: 0;
