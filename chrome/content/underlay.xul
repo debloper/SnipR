@@ -5,12 +5,14 @@
   
   <script type="application/javascript" src="chrome://snipr/content/overlay.js" />
   
-  <hbox id="identity-box-inner">
-    <image id="snipr-crosshair" />
-  </hbox>
+  <box id="identity-box">
+    <image id="snipr-fennec-crosshair" pack="end" />
+  </box>
   
-  <hbox id="identity-popup-button-container">
-    <button id="identity-popup-snipr-info-button" insertbefore="identity-popup-more-info-button" label="SnipR Information" oncommand="snipr.FxTrigger();" />
+  <hbox id="identity-popup-container">
+    <vbox align="center">
+      <button id="identity-popup-snipr-info-button" label="SnipR" oncommand="snipr.FnTrigger();"/>
+    </vbox>
   </hbox>
   
 </overlay>
