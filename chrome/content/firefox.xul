@@ -2,15 +2,15 @@
 <?xml-stylesheet href="chrome://snipr/skin/overlay.css" type="text/css"?>
 <!DOCTYPE overlay>
 <overlay id="snipr-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-  
+
   <script type="application/javascript" src="chrome://snipr/content/overlay.js" />
-  
+
   <hbox id="identity-box-inner">
     <image id="snipr-crosshair" />
   </hbox>
-  
+
   <hbox id="identity-popup-button-container">
     <button id="firefox-snipr-info-button" insertbefore="identity-popup-more-info-button" label="SnipR Information" oncommand="snipr.FxTrigger();" />
   </hbox>
-  
+
 </overlay>

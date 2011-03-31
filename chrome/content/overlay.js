@@ -15,7 +15,7 @@ var snipr = {
 	while (DNS && DNS.hasMore()) { ips.push(DNS.getNextAddrAsString()); }
 	ip = ips[0];
 	ownerTab = gBrowser.selectedTab;
-	sniprTab = gBrowser.addTab("chrome://snipr/content/firefox.htm?"+host+"#"+ip, {referrerURI:gBrowser.currentURI, owner:ownerTab});
+	sniprTab = gBrowser.addTab("http://github.com/debloper/SnipR/firefox.htm?"+host+"#"+ip, {referrerURI:gBrowser.currentURI, owner:ownerTab});
 	gBrowser.selectedTab = sniprTab;
 	},
 	
@@ -28,7 +28,7 @@ var snipr = {
 	while (DNS && DNS.hasMore()) { ips.push(DNS.getNextAddrAsString()); }
 	ip = ips[0];
 	ownerTab = Browser.selectedTab;
-	sniprTab = Browser.addTab("chrome://snipr/content/fennec.htm?"+host+"#"+ip);
+	sniprTab = Browser.addTab("http://github.com/debloper/SnipR/fennec.htm?"+host+"#"+ip);
 	Browser.selectedTab = sniprTab;
 	}
 };
