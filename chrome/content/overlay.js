@@ -8,27 +8,27 @@ var snipr = {
   
   FxTrigger: function() {
 	var host = gBrowser.contentWindow.location.hostname;
-	var ips = new Array();
-	var DNS = Components.classes['@mozilla.org/network/dns-service;1']
-				.getService(Components.interfaces.nsIDNSService)
-					.resolve(host, true);
-	while (DNS && DNS.hasMore()) { ips.push(DNS.getNextAddrAsString()); }
-	ip = ips[0];
+	var ip = snipr.resolveIP(host);
 	ownerTab = gBrowser.selectedTab;
-	sniprTab = gBrowser.addTab("http://github.com/debloper/SnipR/firefox.htm?"+host+"#"+ip, {referrerURI:gBrowser.currentURI, owner:ownerTab});
+	sniprTab = gBrowser.addTab("http://debloper.github.com/SnipR/firefox.htm?"+host+"#"+ip, {referrerURI:gBrowser.currentURI, owner:ownerTab});
 	gBrowser.selectedTab = sniprTab;
-	},
-	
+  },
+  
   FnTrigger: function() {
 	var host = getBrowser().currentURI.host;
+	var ip = snipr.resolveIP(host);
+	ownerTab = Browser.selectedTab;
+	sniprTab = Browser.addTab("http://debloper.github.com/SnipR/fennec.htm?"+host+"#"+ip);
+	Browser.selectedTab = sniprTab;
+  },
+  
+  resolveIP: function(host) {
 	var ips = new Array();
 	var DNS = Components.classes['@mozilla.org/network/dns-service;1']
 				.getService(Components.interfaces.nsIDNSService)
 					.resolve(host, true);
 	while (DNS && DNS.hasMore()) { ips.push(DNS.getNextAddrAsString()); }
-	ip = ips[0];
-	ownerTab = Browser.selectedTab;
-	sniprTab = Browser.addTab("http://github.com/debloper/SnipR/fennec.htm?"+host+"#"+ip);
-	Browser.selectedTab = sniprTab;
-	}
+	var ip = ips[0];
+	return ip;
+  }
 };

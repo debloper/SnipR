@@ -4,16 +4,20 @@ As the forking & merging of SnipR & SnipR Mobile has been streamlined into one *
 
 v1.2.0 - v1.5.0
 ---------------
-*	SnipR & SnipR Mobile has been seamlessly put into a single repo & can use the same binary/package.
-*   No more remote JS calls from chrome:// privilege, (logical) security issue fixed.
-*   Fetches optional contents from the web, so lighter download package.
-*   Further minimizes resource footprint & has gone faster.
-*   GitHub homepage & bug-tracker; developing wiki pages.
+*	SnipR & SnipR Mobile branches has been merged & can be used from the same package.
+*	No more remote JS calls from chrome:// privilege, (logical) security issue fixed.
+*	No more AJAX - information fetching utilizes JSONP technology for performance.
+*	Backward compatibility has been called off, doesn't work on Firefox 3.6 anymore.
+*	Fetches optional contents from the web, so lighter download package.
+*	Further minimizes resource footprint & has gone faster.
+*	GitHub homepage & bug-tracker; developing wiki pages.
+
 
 v1.1.0 - v1.2.0
 ---------------
 *	XmlHttpRequest has been changed from synchronous to asynchronous to avoid (theoritically-) accidental UI freeze.
 *	Google Maps default Zoom level has been increased to level 10.
+
 
 v1.0.0 - v1.1.0
 ---------------
@@ -24,8 +28,8 @@ v1.0.0 - v1.1.0
 *	The Logo is recreated & repositioned, to make the entire appearance a lot cooler.
 
 
-Roadmap
-=======
+Roadmap / Bug Reports
+=====================
 Personally I don't really think of any more features that has to be integrated.
 
 May you have any, please report them as [features/suggestions/bugs](https://github.com/debloper/SnipR/issues "Issues Tracker").
