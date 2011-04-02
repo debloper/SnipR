@@ -5,27 +5,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>SnipR - Server Network IP Resolver</title>
 
-<style type="text/css">
-body {
-	width:720px;
-	margin:auto;
-	color: #555;
-	background: #EEE;
-	line-height: 150%;
-	text-align: justify;
-	text-shadow: #FFF 1px 1px 1px;
-	font-family: Tahoma, Geneva, sans-serif;
-}
-</style>
+<style type="text/css"> @import url("./style/index.css"); </style>
 </head>
 
 <body>
   <a href="http://github.com/debloper/SnipR/">
-    <img style="position: absolute; top: 0; left: 0; border: 0;" src="./img/fork.png" alt="Fork me on GitHub">
+    <img style="position: relative; top: 0; left: 0; border: 0;" src="./img/fork.png" alt="Fork me on GitHub">
   </a>
-<br /><br />
+<div id="logo">SnipR</div>
+<div id="content">
   <h1>SnipR</h1>
-    <p><strong><code style="font-size:large;">Server Network IP Resolver</code></strong> : Firefox &amp; Fennec addon to geolocate webservers.</p>
+    <p><strong><cite style="font-size:large;">Server Network IP Resolver</cite></strong> : Firefox &amp; Fennec addon to geolocate webservers.</p>
 <br />
   <h2>Description</h2>
     <p>SnipR provides the most light and minimal interface to quick-lookup the Geolocation of the website's hosting servers upto city level precision. It also provides some other relevant details such as the server <em>IP</em>, <em>Timezone</em> and <em>Google Maps</em> plot of the location data.</p>
@@ -39,8 +29,10 @@ body {
     <p>As the forking &amp; merging of SnipR &amp; SnipR Mobile has been streamlined into one <strong>SnipR</strong> repository, it took some reworking in versioning convention. Now featurewise, SnipR 1.x.0 = SnipR Mobile 1.x.5 upto version 1.2.5.</p>
   <h3>v1.2.0 - v1.5.0</h3>
     <ul>
-      <li>SnipR &amp; SnipR Mobile has been seamlessly put into a single repo &amp; can use the same binary/package.</li>
+      <li>SnipR &amp; SnipR Mobile branches has been merged &amp; can be used from the same package.</li>
       <li>No more remote JS calls from chrome:// privilege, (logical) security issue fixed.</li>
+      <li>No more AJAX - information fetching utilizes JSONP technology for performance.</li>
+      <li>Backward compatibility has been called off, doesn't work on Firefox 3.6 anymore.</li>
       <li>Fetches optional contents from the web, so lighter download package.</li>
       <li>Further minimizes resource footprint &amp; has gone faster.</li>
       <li>GitHub homepage &amp; bug-tracker; developing wiki pages.</li>
@@ -59,13 +51,13 @@ body {
       <li>The Logo is recreated &amp; repositioned, to make the entire appearance a lot cooler.</li>
     </ul>
 <br />
-  <h2>Roadmap</h2>
+  <h2>Roadmap / Bug Reports</h2>
     <p>Personally I don't really think of any more features that has to be integrated.</p>
     <p>May you have any, please report them as <a href="https://github.com/debloper/SnipR/issues" title="Issues Tracker">features/suggestions/bugs</a>.</p>
 <br />
   <h2>Known Issues</h2>
     <p>I have got complains that the button is not prominent enough to be eye-catchy - some even said they failed to find it completely after installing. Odd to say, but it's made to be like this. It's meant to blend itself with Firefox's interface, and to be an integral part of it. In Fennec, I guess, there's less chance for it - I am also not very happy to put the icon on where it is - wish I knew any better place.</p>
     <p>Also some people complained the absence of marker(pointer) on the map [Personally, I don't like the marker] - what do you think?</p>
-<br /><br /><br /><br /><br />
+</div>
 </body>
 </html>

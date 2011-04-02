@@ -1,0 +1,28 @@
+body {
+	width: 800px;
+	margin: auto;
+	color: #555;
+	background: #EEE;
+	line-height: 150%;
+	text-align: justify;
+	text-shadow: #FFF 1px 1px 1px;
+	font-family: Tahoma, Geneva, sans-serif;
+	box-shadow:4px 4px 2em rgba(0,0,0,0.25);
+}
+#content {
+	position: relative;
+	margin-left: 80px;
+	margin-right: 48px;
+	padding-bottom: 128px;
+}
+#logo {
+	float: right;
+	position: relative;
+	margin-top: 48px;
+	margin-right: 48px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 150px;
+	font-weight: bold;
+	color: #EEE;
+	text-shadow: #999 8px 8px 8px;
+}
