@@ -4,7 +4,7 @@
     <em:id>guid@snipr.mail</em:id>
     <em:type>2</em:type>
     <em:name>SnipR</em:name>
-    <em:version>1.5.0</em:version>
+    <em:version>2.0.0</em:version>
 	<em:iconURL>http://debloper.github.com/SnipR/img/icon.png</em:iconURL>
 	<em:homepageURL>http://debloper.github.com/SnipR/</em:homepageURL>
     <em:creator>Debloper</em:creator>
@@ -13,15 +13,15 @@
     <em:targetApplication>
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id> <!-- Firefox -->
-        <em:minVersion>4.0b10pre</em:minVersion>
-        <em:maxVersion>4.0.*</em:maxVersion>
+        <em:minVersion>4.0</em:minVersion>
+        <em:maxVersion>7.0a1</em:maxVersion>
       </Description>
     </em:targetApplication>
     <em:targetApplication>
       <Description>
         <em:id>{a23983c0-fd0e-11dc-95ff-0800200c9a66}</em:id> <!-- Fennec -->
-        <em:minVersion>4.0b1pre</em:minVersion>
-        <em:maxVersion>4.0.*</em:maxVersion>
+        <em:minVersion>4.0</em:minVersion>
+        <em:maxVersion>7.0a1</em:maxVersion>
       </Description>
     </em:targetApplication>
 
