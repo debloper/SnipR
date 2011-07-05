@@ -27,7 +27,19 @@
 <br />
   <h2>Changelog</h2>
     <p>As the forking &amp; merging of SnipR &amp; SnipR Mobile has been streamlined into one <strong>SnipR</strong> repository, it took some reworking in versioning convention. Now featurewise, SnipR 1.x.0 = SnipR Mobile 1.x.5 upto version 1.2.5.</p>
-  <h3>v1.2.0 - v1.5.0</h3>
+  <h3>v1.5.0 - v2.0.0</h3>
+    <ul>
+      <li>On Fennec, the interface is cleaner, with the CrossHair removed.</li>
+      <li>No longer uses any raster-image (and also no vector image, so far).</li>
+      <li>SnipR CrossHair &amp; Information Button removed from the "identity-popup".</li>
+      <li>The all new standalone urlbar button has been added for more addon visibility.</li>
+      <li>The SnipR data is now fetched with a single click (compared to 2 clicks before).</li>
+    </ul>
+  <h4>w0.0 - w1.0 (Web front-end changes)</h4>
+    <ul>
+      <li>Favicons added to the Marksman-pages.</li>
+    </ul>
+<h3>v1.2.0 - v1.5.0</h3>
     <ul>
       <li>SnipR &amp; SnipR Mobile branches has been merged &amp; can be used from the same package.</li>
       <li>No more remote JS calls from chrome:// privilege, (logical) security issue fixed.</li>
@@ -52,11 +64,11 @@
     </ul>
 <br />
   <h2>Roadmap / Bug Reports</h2>
-    <p>Personally I don't really think of any more features that has to be integrated.</p>
-    <p>May you have any, please report them as <a href="https://github.com/debloper/SnipR/issues" title="Issues Tracker">features/suggestions/bugs</a>.</p>
+    <p>The new SnipR button is planned to be placed to the right to the URL itself, to make the URL-bar less clumsy. It's also planned to make it show the IP of the loaded page's host on the new button's label, itself - so that if only the IP is sought, no click is required.</p>
+    <p>May you have any other plans for it, please report them as <a href="https://github.com/debloper/SnipR/issues" title="Issues Tracker">features/suggestions/bugs</a>.</p>
 <br />
   <h2>Known Issues</h2>
-    <p>I have got complains that the button is not prominent enough to be eye-catchy - some even said they failed to find it completely after installing. Odd to say, but it's made to be like this. It's meant to blend itself with Firefox's interface, and to be an integral part of it. In Fennec, I guess, there's less chance for it - I am also not very happy to put the icon on where it is - wish I knew any better place.</p>
+    <p>The SnipR button on firefox makes the URL-bar 1px taller. It was makeing it 4px taller, but special CSS-care has been taken so that the final outcome is not perceivable.</p>
     <p>Also some people complained the absence of marker(pointer) on the map [Personally, I don't like the marker] - what do you think?</p>
 </div>
 </body>
