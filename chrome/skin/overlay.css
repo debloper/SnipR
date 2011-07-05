@@ -1,11 +1,4 @@
 #snipr-crosshair
 {
-  list-style-image: url("chrome://snipr/skin/icon16.png");
-  background: url("chrome://snipr/skin/icon20-glow.png") center no-repeat !important;
-  padding: 0px 2px;
-}
-#firefox-snipr-info-button {
-  margin-top: 6px;
-  margin-bottom: 0;
-  -moz-margin-end: 0;
+  min-width: 24px;
 }
