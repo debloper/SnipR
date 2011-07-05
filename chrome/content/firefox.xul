@@ -6,7 +6,7 @@
   <script type="application/javascript" src="chrome://snipr/content/overlay.js" />
 
   <textbox id="urlbar">
-    <button id="snipr-crosshair" class="plain" image="chrome://snipr/skin/icon16.png" oncommand="snipr.FxTrigger();" />
+    <button id="snipr-crosshair" class="plain" label=" SnipR" oncommand="snipr.FxTrigger();" />
   </textbox>
 
 </overlay>

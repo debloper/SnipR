@@ -1,4 +1,13 @@
-#snipr-crosshair
-{
-  min-width: 24px;
+#snipr-crosshair {
+  color: #999;
+  min-width: 16px;
+  margin: 0 5px 0 0 !important;
+  border: 1px solid #ccc !important;
+  border-radius: 3px;
+  background: transparent;
+}
+#snipr-crosshair:hover {
+  color: #963;
+  border: 1px solid #C63 !important;
+  box-shadow: inset 0 0 5px #ECA;
 }
