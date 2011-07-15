@@ -1,18 +1,1 @@
-#snipr-crosshair {
-  color: #999;
-  min-width: 16px;
-  margin: 0 5px 0 0 !important;
-  padding: 0 5px !important;
-  border: 1px solid #ccc !important;
-  border-radius: 3px;
-  background: transparent;
-}
-#snipr-crosshair:hover {
-  color: #963;
-  border: 1px solid #C63 !important;
-  box-shadow: inset 0 0 5px #ECA;
-}
-#snipr-crosshair * {
-  margin: 0 !important;
-  padding: 0 !important;
-}
+#urlbar toolbarbutton#snipr-scope { list-style-image: none; }
