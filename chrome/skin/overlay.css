@@ -1,1 +1,6 @@
-#urlbar toolbarbutton#snipr-scope { list-style-image: none; }
+#urlbar toolbarbutton#snipr-scope {
+	color: #666;
+	margin: -2px 0;
+	border-radius: 0;
+	list-style-image: none;
+}
