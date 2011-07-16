@@ -4,3 +4,9 @@
 	border-radius: 0;
 	list-style-image: none;
 }
+#urlbar toolbarbutton#snipr-scope:hover {
+	color: #036;
+	text-shadow: 0 0 2px #fff;
+	box-shadow: inset 0 1px 0 rgba(0,0,0,.1), inset -1px -1px 1px rgba(255,255,255,.25);
+	background-image: -moz-linear-gradient(rgb(162,207,241), rgb(111,178,225) 49%, rgb(91,159,217) 51%, rgb(62,138,200));
+}
