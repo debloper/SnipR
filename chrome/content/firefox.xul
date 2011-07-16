@@ -6,7 +6,7 @@
   <script type="application/javascript" src="chrome://snipr/content/overlay.js" />
 
   <textbox id="urlbar">
-    <toolbarbutton id="snipr-scope" insertafter="urlbar-icons" oncommand="snipr.FxTrigger();">
+    <toolbarbutton id="snipr-scope" insertafter="urlbar-icons" oncommand="snipr.FxTrigger();" onmouseover="snipr.updateLabel();" onmouseout="snipr.updateLabel();">
 	  <label id="snipr-crosshair" value="SnipR" />
 	</toolbarbutton>
   </textbox>
