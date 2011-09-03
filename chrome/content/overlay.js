@@ -39,25 +39,29 @@ var snipr = {
 	Browser.selectedTab = sniprTab;
   },
 
-  dnsListener: {
+  splitIp: function(a) {
+	if (a) {
+		var IPs = new Array();
+		while (a && a.hasMore()) { IPs.push(a.getNextAddrAsString()); }
+		return IPs[0];
+	} else return false;
+  },
+
+  label: {
 	onLookupComplete : function(a,b,c) {
-		var ips = new Array();
-		while (b && b.hasMore()) { ips.push(b.getNextAddrAsString()); }
-		if (b) {
-			var ip = ips[0];
-			snipr.crosshair.value = ip;
-		} else {
-			snipr.crosshair.value = "No Network";
-		}
+		var ip = snipr.splitIp(b);
+		if (ip) { snipr.crosshair.value = ip; }
+		else snipr.crosshair.value = "No Network";
 	}
   },
 
-  resolveIP: function(host) {
+  fire: function(target) {
+	var hostName = snipr.resolveHost(), callBack = snipr[target];
 	var Cc = Components.classes, Ci = Components.interfaces;
 	var theThread = Cc["@mozilla.org/thread-manager;1"]
 		.getService(Ci.nsIThreadManager).currentThread;
 	Cc['@mozilla.org/network/dns-service;1'].getService(Ci.nsIDNSService)
-		.asyncResolve(host, true, snipr.dnsListener, theThread);
+		.asyncResolve(hostName, true, callBack, theThread);
 	snipr.crosshair.value = "Fetching...";
   }
 };
