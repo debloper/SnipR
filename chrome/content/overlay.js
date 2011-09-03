@@ -36,20 +36,27 @@ var snipr = {
 	Browser.selectedTab = sniprTab;
   },
 
-  resolveIP: function(host) {
-	var ips = new Array();
-	var DNS = Components.classes['@mozilla.org/network/dns-service;1']
-				.getService(Components.interfaces.nsIDNSService)
-					.resolve(host, true);
-	while (DNS && DNS.hasMore()) { ips.push(DNS.getNextAddrAsString()); }
-	var ip = ips[0];
-	return ip;
+  dnsListener: {
+	onLookupComplete : function(a,b,c) {
+		var ips = new Array();
+		while (b && b.hasMore()) { ips.push(b.getNextAddrAsString()); }
+		var ip = ips[0];
+		snipr.updateLabel(ip);
+	}
   },
 
-  updateLabel: function() {
+  resolveIP: function(host) {
+	var Cc = Components.classes, Ci = Components.interfaces;
+	var theThread = Cc["@mozilla.org/thread-manager;1"]
+		.getService(Ci.nsIThreadManager).currentThread;
+	Cc['@mozilla.org/network/dns-service;1'].getService(Ci.nsIDNSService)
+		.asyncResolve(host, true, snipr.dnsListener, theThread);
+  },
+
+  updateLabel: function(ip) {
 	var label = document.getElementById("snipr-crosshair");
 	if (label.value == "SnipR") {
-		try { label.value = snipr.resolveIP(snipr.resolveHost()); }
+		try { label.value = ip; }
 		catch (e) { label.value = "No Connection or Local Page!" }
 	} else { label.value = "SnipR"; }
   }
