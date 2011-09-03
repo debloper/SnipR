@@ -2,12 +2,15 @@ window.addEventListener("load", function(event) { snipr.onLoad(event) }, false);
 
 var snipr = {
   browser: "",
+  crosshair: {},
 
   onLoad: function(event) {
 	this.initialized = true;
 	this.strings = document.getElementById("snipr-overlay");
-	if ( gBrowser ) { snipr.browser = "firefox"; }
-	else { snipr.browser = "fennec"; }
+	if ( gBrowser ) {
+		snipr.browser = "firefox";
+		snipr.crosshair = document.getElementById("snipr-crosshair");
+	} else { snipr.browser = "fennec"; }
   },
 
   resolveHost: function() {
@@ -40,8 +43,12 @@ var snipr = {
 	onLookupComplete : function(a,b,c) {
 		var ips = new Array();
 		while (b && b.hasMore()) { ips.push(b.getNextAddrAsString()); }
-		var ip = ips[0];
-		snipr.updateLabel(ip);
+		if (b) {
+			var ip = ips[0];
+			snipr.crosshair.value = ip;
+		} else {
+			snipr.crosshair.value = "No Network";
+		}
 	}
   },
 
@@ -51,13 +58,6 @@ var snipr = {
 		.getService(Ci.nsIThreadManager).currentThread;
 	Cc['@mozilla.org/network/dns-service;1'].getService(Ci.nsIDNSService)
 		.asyncResolve(host, true, snipr.dnsListener, theThread);
-  },
-
-  updateLabel: function(ip) {
-	var label = document.getElementById("snipr-crosshair");
-	if (label.value == "SnipR") {
-		try { label.value = ip; }
-		catch (e) { label.value = "No Connection or Local Page!" }
-	} else { label.value = "SnipR"; }
+	snipr.crosshair.value = "Fetching...";
   }
 };
