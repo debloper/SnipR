@@ -1,4 +1,5 @@
 window.addEventListener("load", function(event) { snipr.onLoad(event) }, false);
+gBrowser.tabContainer.addEventListener("TabSelect", function(event) { snipr.crosshair.value = "SnipR"; }, false);
 
 var snipr = {
   browser: "",
