@@ -56,6 +56,17 @@ var snipr = {
 	}
   },
 
+  trigger: {
+	onLookupComplete : function(a,b,c) {
+		if (b) {
+			var host = snipr.host, ip = snipr.splitIp(b);
+			var ownerTab = gBrowser.selectedTab;
+			var sniprTab = gBrowser.addTab(snipr.renderUrl(host,ip), {referrerURI:gBrowser.currentURI, owner:ownerTab});
+			gBrowser.selectedTab = sniprTab;
+		}	else snipr.crosshair.value = "No Network";
+	}
+  },
+
   fire: function(target) {
 	snipr.host = snipr.resolveHost();
 	var callBack = snipr[target];
