@@ -25,22 +25,6 @@ var snipr = {
 	  return "http://debloper.github.com/SnipR/"+snipr.browser+".htm?"+host+"#"+ip;
   },
 
-  FxTrigger: function() {
-	var host = snipr.resolveHost();
-	var ip = snipr.resolveIP(host);
-	ownerTab = gBrowser.selectedTab;
-	sniprTab = gBrowser.addTab(snipr.renderUrl(host,ip), {referrerURI:gBrowser.currentURI, owner:ownerTab});
-	gBrowser.selectedTab = sniprTab;
-  },
-
-  FnTrigger: function() {
-	var host = snipr.resolveHost();
-	var ip = snipr.resolveIP(host);
-	ownerTab = Browser.selectedTab;
-	sniprTab = Browser.addTab(snipr.renderUrl(host,ip));
-	Browser.selectedTab = sniprTab;
-  },
-
   splitIp: function(a) {
 	var IPs = new Array();
 	while (a && a.hasMore()) { IPs.push(a.getNextAddrAsString()); }
@@ -60,10 +44,13 @@ var snipr = {
 	onLookupComplete : function(a,b,c) {
 		if (b) {
 			var host = snipr.host, ip = snipr.splitIp(b);
-			var ownerTab = gBrowser.selectedTab;
-			var sniprTab = gBrowser.addTab(snipr.renderUrl(host,ip), {referrerURI:gBrowser.currentURI, owner:ownerTab});
-			gBrowser.selectedTab = sniprTab;
-		}	else snipr.crosshair.value = "No Network";
+			if (snipr.browser == "firefox") {
+				gBrowser.selectedTab = gBrowser.addTab(snipr.renderUrl(host,ip),
+				{referrerURI:gBrowser.currentURI, owner:gBrowser.selectedTab});
+			} else {
+				Browser.selectedTab = Browser.addTab(snipr.renderUrl(host,ip));
+			}
+		}
 	}
   },
 

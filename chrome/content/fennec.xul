@@ -7,7 +7,7 @@
 
   <hbox id="identity-popup-container">
     <vbox align="center">
-      <button id="fennec-snipr-info-button" label="SnipR" oncommand="snipr.FnTrigger();"/>
+      <button id="fennec-snipr-info-button" label="SnipR" oncommand="snipr.fire('trigger');"/>
     </vbox>
   </hbox>
 
