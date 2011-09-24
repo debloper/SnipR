@@ -4,6 +4,7 @@ gBrowser.tabContainer.addEventListener("TabSelect", function(event) { snipr.cros
 var snipr = {
   browser: "",
   crosshair: {},
+  host: "",
 
   onLoad: function(event) {
 	this.initialized = true;
@@ -41,29 +42,29 @@ var snipr = {
   },
 
   splitIp: function(a) {
-	if (a) {
-		var IPs = new Array();
-		while (a && a.hasMore()) { IPs.push(a.getNextAddrAsString()); }
-		return IPs[0];
-	} else return false;
+	var IPs = new Array();
+	while (a && a.hasMore()) { IPs.push(a.getNextAddrAsString()); }
+	return IPs[0];
   },
 
   label: {
 	onLookupComplete : function(a,b,c) {
-		var ip = snipr.splitIp(b);
-		if (ip) { snipr.crosshair.value = ip; }
-		else snipr.crosshair.value = "No Network";
+		if (b) {
+			var ip = snipr.splitIp(b);
+			snipr.crosshair.value = ip;
+		}	else snipr.crosshair.value = "No Network";
 	}
   },
 
   fire: function(target) {
-	var hostName = snipr.resolveHost(), callBack = snipr[target];
+	snipr.host = snipr.resolveHost();
+	var callBack = snipr[target];
 	var Cc = Components.classes, Ci = Components.interfaces;
 	var theThread = Cc["@mozilla.org/thread-manager;1"]
 		.getService(Ci.nsIThreadManager).currentThread;
 	try {
 		Cc['@mozilla.org/network/dns-service;1'].getService(Ci.nsIDNSService)
-		.asyncResolve(hostName, true, callBack, theThread);
+		.asyncResolve(snipr.host, true, callBack, theThread);
 	} catch (e) { snipr.crosshair.value = "Local Page"; }
   }
 };
