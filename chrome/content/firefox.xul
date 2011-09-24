@@ -9,7 +9,7 @@
     <toolbarbutton id="snipr-scope"
 		insertafter="urlbar-icons"
 		oncommand="snipr.FxTrigger();"
-		onmouseover="snipr.fire('label');">
+		onmouseover="snipr.crosshair.value = 'Fetching...'; snipr.fire('label');">
 	  <label id="snipr-crosshair" value="SnipR" />
 	</toolbarbutton>
   </textbox>

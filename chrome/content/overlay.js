@@ -60,8 +60,9 @@ var snipr = {
 	var Cc = Components.classes, Ci = Components.interfaces;
 	var theThread = Cc["@mozilla.org/thread-manager;1"]
 		.getService(Ci.nsIThreadManager).currentThread;
-	Cc['@mozilla.org/network/dns-service;1'].getService(Ci.nsIDNSService)
+	try {
+		Cc['@mozilla.org/network/dns-service;1'].getService(Ci.nsIDNSService)
 		.asyncResolve(hostName, true, callBack, theThread);
-	snipr.crosshair.value = "Fetching...";
+	} catch (e) { snipr.crosshair.value = "Local Page"; }
   }
 };
