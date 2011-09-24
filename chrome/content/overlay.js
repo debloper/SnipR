@@ -1,8 +1,7 @@
 window.addEventListener("load", function(event) { snipr.onLoad(event) }, false);
-gBrowser.tabContainer.addEventListener("TabSelect", function(event) { snipr.crosshair.value = "SnipR"; }, false);
 
 var snipr = {
-  browser: "",
+  firefox: false,
   crosshair: {},
   host: "",
 
@@ -10,19 +9,21 @@ var snipr = {
 	this.initialized = true;
 	this.strings = document.getElementById("snipr-overlay");
 	if ( gBrowser ) {
-		snipr.browser = "firefox";
+		snipr.firefox = true;
 		snipr.crosshair = document.getElementById("snipr-crosshair");
-	} else { snipr.browser = "fennec"; }
+		gBrowser.tabContainer.addEventListener("TabSelect",
+			function(event) { snipr.crosshair.value = "SnipR"; }, false);
+	}
   },
 
   resolveHost: function() {
-	  if (snipr.browser == "firefox") {
+	  if (snipr.firefox) {
 		  return gBrowser.contentWindow.location.hostname;
 	  } else return getBrowser().currentURI.host;
   },
 
-  renderUrl: function(host,ip) {
-	  return "http://debloper.github.com/SnipR/"+snipr.browser+".htm?"+host+"#"+ip;
+  renderUrl: function(host,ip,browser) {
+	  return "http://debloper.github.com/SnipR/"+browser+".htm?"+host+"#"+ip;
   },
 
   splitIp: function(a) {
@@ -44,12 +45,10 @@ var snipr = {
 	onLookupComplete : function(a,b,c) {
 		if (b) {
 			var host = snipr.host, ip = snipr.splitIp(b);
-			if (snipr.browser == "firefox") {
-				gBrowser.selectedTab = gBrowser.addTab(snipr.renderUrl(host,ip),
+			if (snipr.firefox) {
+				gBrowser.selectedTab = gBrowser.addTab(snipr.renderUrl(host,ip,"firefox"),
 				{referrerURI:gBrowser.currentURI, owner:gBrowser.selectedTab});
-			} else {
-				Browser.selectedTab = Browser.addTab(snipr.renderUrl(host,ip));
-			}
+			} else { Browser.selectedTab = Browser.addTab(snipr.renderUrl(host,ip,"fennec")); }
 		}
 	}
   },
