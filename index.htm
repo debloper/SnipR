@@ -27,7 +27,39 @@
 <br />
   <h2>Changelog</h2>
     <p>As the forking &amp; merging of SnipR &amp; SnipR Mobile has been streamlined into one <strong>SnipR</strong> repository, it took some reworking in versioning convention. Now featurewise, SnipR 1.x.0 = SnipR Mobile 1.x.5 upto version 1.2.5.</p>
-  <h3>v1.5.0 - v2.0.0</h3>
+  <h3>v2.5.0 - v3.0.0</h3>
+    <ul>
+      <li>No more interface hang while IP fetching [MASSIVE Update]</li>
+      <li>More accurate status notifications &amp; action feedbacks</li>
+      <li>Even more performance oriented &amp; multi-threaded operations</li>
+      <li>Still under 4kB, still ultra-low resource footprint.</li>
+    </ul>
+  <h4>Web front-end changes</h4>
+    <ul>
+      <li>[Work In Progress] on separate branch</li>
+      <li>Getting rebuilt in HTML5/CSS3 from scratch.</li>
+      <li>Single Page to handle both browsers (Desktop &amp; Mobile)</li>
+    </ul>
+  <h4>Bugs Fixed:</h4>
+    <ul>
+      <li><a href="https://github.com/debloper/SnipR/issues/5">Issue 5</a> : Add event listeners to reset the SnipR button-text</li>
+      <li><a href="https://github.com/debloper/SnipR/issues/6">Issue 6</a> : Use asyncResolve() to overcome the interface-hang issue</li>
+      <li><a href="https://github.com/debloper/SnipR/issues/7">Issue 7</a> : Update the notification label consistently</li>
+      <li><a href="https://github.com/debloper/SnipR/issues/9">Issue 9</a> : Make the IP persistent once resolved, till the tab is changed</li>
+    </ul>
+  <h3>v2.0.0 - v2.5.0</h3>
+    <ul>
+      <li>SnipR button repositioned to a more accessible &amp; non-clumsy location</li>
+      <li>Live IP view on hover; no clicking is required if only the IP value is sought</li>
+      <li>On demand resource utilization on user interaction to lower resource footprint</li>
+      <li>Updated compatibility with Firefox and Fennec 8.0a1 [The current nightly trunk]</li>
+    </ul>
+  <h4>Bugs Fixed:</h4>
+    <ul>
+      <li><a href="https://github.com/debloper/SnipR/issues/1">Issue 1</a> : Show the IP itself instead of the CrossHair in the locationbar</li>
+      <li><a href="https://github.com/debloper/SnipR/issues/2">Issue 2</a> : Put the command button next to the URL texts</li>
+    </ul>
+<h3>v1.5.0 - v2.0.0</h3>
     <ul>
       <li>On Fennec, the interface is cleaner, with the CrossHair removed.</li>
       <li>No longer uses any raster-image (and also no vector image, so far).</li>
@@ -38,6 +70,11 @@
   <h4>w0.0 - w1.0 (Web front-end changes)</h4>
     <ul>
       <li>Favicons added to the Marksman-pages.</li>
+    </ul>
+  <h4>Bugs Fixed:</h4>
+    <ul>
+      <li><a href="https://github.com/debloper/SnipR/issues/3">Issue 3</a> : Remove the crosshair image from the command-button</li>
+      <li><a href="https://github.com/debloper/SnipR/issues/4">Issue 4</a> : Add favicon to the Marksman page</li>
     </ul>
 <h3>v1.2.0 - v1.5.0</h3>
     <ul>
@@ -68,8 +105,7 @@
     <p>May you have any other plans for it, please report them as <a href="https://github.com/debloper/SnipR/issues" title="Issues Tracker">features/suggestions/bugs</a>.</p>
 <br />
   <h2>Known Issues</h2>
-    <p>The SnipR button on firefox makes the URL-bar 1px taller. It was makeing it 4px taller, but special CSS-care has been taken so that the final outcome is not perceivable.</p>
-    <p>Also some people complained the absence of marker(pointer) on the map [Personally, I don't like the marker] - what do you think?</p>
+    <p>None. Triaged all the known issues (come, gimme a chest-bump)!</p>
 </div>
 </body>
 </html>
