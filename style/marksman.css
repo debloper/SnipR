@@ -4,6 +4,7 @@
 1. Elements
 2. IDs
 3. Classes
+4. Pseudoclasses
 ===== End =====
 */
 
@@ -19,6 +20,8 @@ body {
 	padding:			0;
 	min-width:			320px;
 	background:			#fff;
+	font-family:		Verdana, Georgia, Helvetica,
+						Roboto, "Droid Sans", Sans-serif;
 	-webkit-transform:	translateZ(0);
 	-moz-transform:		translateZ(0);
 	-ms-transform:		translateZ(0);
@@ -29,7 +32,6 @@ a {
 	outline:			0;
 	text-decoration:	none;
 }
-a:hover { color: #E73; }
 
 /* 1. Elements */
 section {
@@ -48,7 +50,49 @@ section {
 section > * {
 	width:				480px;
 }
+hgroup h1 {
+	margin:				0;
+	font-size:			8rem;
+	z-index:			1;
+	position:			relative;
+	bottom:				-1rem;
+	text-shadow:		5px 5px 10px #ccc;
+	-moz-transition:	all 200ms ease;
+	transition:			all 200ms ease;
+}
+hgroup h1 a {
+	color:				#fff;
+}
+hgroup h2 {
+	color:				#666;
+	margin:				0;
+	font-size:			1.5rem;
+	word-spacing:		1rem;
+	background:			#fff;
+	position:			relative;
+	z-index:			2;
+}
+hgroup div {
+	height:				0.5rem;
+	background:			-moz-radial-gradient(top, #ccc, #fff 70%);
+	position:			relative;
+	z-index:			2;
+}
+table {
+	float:				right;
+}
 
 /* 2. IDs */
 
 /* 3. Classes */
+table .data {
+	min-width:			240px;
+	text-align:			right;
+	font-family:		Georgia, "Times New Roman", Times, serif;
+}
+
+/* 4. Pseudoclasses */
+hgroup h1:hover {
+	bottom:				0;
+	text-shadow:		5px 5px 10px #bbb;
+}
