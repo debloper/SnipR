@@ -1,7 +1,7 @@
 /*
 ===== ToC =====
 0. Resets
-1. Elements	
+1. Elements
 2. IDs
 3. Classes
 ===== End =====
@@ -30,3 +30,25 @@ a {
 	text-decoration:	none;
 }
 a:hover { color: #E73; }
+
+/* 1. Elements */
+section {
+	width:				100%;
+
+	display:			-moz-box;
+	-moz-box-orient:	horizontal;
+	-moz-box-align:		end;
+	-moz-box-pack:		center;
+
+	display:			box;
+	box-orient:			horizontal;
+	box-align:			end;
+	box-pack:			center;
+}
+section > * {
+	width:				480px;
+}
+
+/* 2. IDs */
+
+/* 3. Classes */
