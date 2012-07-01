@@ -65,6 +65,6 @@ var pushDOM = {
 		center: latlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
-	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	var map = new google.maps.Map(document.getElementById("Gmap"), myOptions);
   }
 }

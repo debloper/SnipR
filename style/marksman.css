@@ -1,7 +1,32 @@
 /*
 ===== ToC =====
+0. Resets
 1. Elements	
 2. IDs
 3. Classes
 ===== End =====
 */
+
+/* 0. Reset */
+* {
+	-moz-box-sizing:  border-box;
+	box-sizing:      border-box;
+}
+body {
+	color:				#333;
+	width:				100%;
+	margin:				0;
+	padding:			0;
+	min-width:			320px;
+	background:			#fff;
+	-webkit-transform:	translateZ(0);
+	-moz-transform:		translateZ(0);
+	-ms-transform:		translateZ(0);
+	-o-transform:		translateZ(0);
+	transform:			translateZ(0);
+}
+a {
+	outline:			0;
+	text-decoration:	none;
+}
+a:hover { color: #E73; }
