@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>SnipR - Marksman</title>
+
+		<link rel="icon" type="image/png" href="img/favicon.png" />
+		<link rel="stylesheet" charset="utf-8" href="style/marksman.css" />
+
+		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="script/marksman.js"></script>
+
+	</head>
+
+	<body onload="init()">
+		<section>
+			<hgroup>
+				<h1>SnipR</h1>
+				<h4>Server Network IP Resolver</h4>
+			</hgroup>
+			<article>
+				<table id="details_table" border="0" cellpadding="0" cellspacing="0">
+					<caption id="hosturl">Please Wait...</caption>
+					<tr>
+						<td class="detail_index">Host IP</td>
+						<td class="detail_separator">:</td>
+						<td id="hostip" class="detail_data">...Fetching</td>
+					</tr>
+					<tr>
+						<td class="detail_index">Location</td>
+						<td class="detail_separator">:</td>
+						<td id="location" class="detail_data">...Fetching</td>
+					</tr>
+					<tr>
+						<td class="detail_index">Country</td>
+						<td class="detail_separator">:</td>
+						<td id="country" class="detail_data">...Fetching</td>
+					</tr>
+					<tr>
+						<td class="detail_index">TimeZone</td>
+						<td class="detail_separator">:</td>
+						<td id="timezone" class="detail_data">...Fetching</td>
+					</tr>
+				</table>
+			</article>
+		</section>
+	</body>
+
+</html>
