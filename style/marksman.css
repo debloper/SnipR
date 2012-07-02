@@ -22,10 +22,7 @@ body {
 	background:			#fff;
 	font-family:		Verdana, Georgia, Helvetica,
 						Roboto, "Droid Sans", Sans-serif;
-	-webkit-transform:	translateZ(0);
 	-moz-transform:		translateZ(0);
-	-ms-transform:		translateZ(0);
-	-o-transform:		translateZ(0);
 	transform:			translateZ(0);
 }
 a {
@@ -36,6 +33,7 @@ a {
 /* 1. Elements */
 section {
 	width:				100%;
+	padding-top:		2rem;
 
 	display:			-moz-box;
 	-moz-box-orient:	horizontal;
@@ -74,7 +72,7 @@ hgroup h2 {
 }
 hgroup div {
 	height:				0.5rem;
-	background:			-moz-radial-gradient(top, #ccc, #fff 70%);
+	background:			-moz-radial-gradient(bottom, #ccc, rgba(255,255,255,0) 75%);
 	position:			relative;
 	z-index:			2;
 }
@@ -93,7 +91,7 @@ table td {
 aside {
 	width:				960px;
 	height:				320px;
-	margin:				3rem auto;
+	margin:				3rem auto 1rem;
 	border:				1px solid #666;
 	box-shadow:			8px 8px 32px rgba(0,0,0,0.25);
 }
