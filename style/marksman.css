@@ -81,6 +81,15 @@ hgroup div {
 table {
 	float:				right;
 }
+table caption {
+	color:				#c00;
+	font-size:			1.5rem;
+	text-align:			right;
+	font-family:		"Arial Black", Gadget, sans-serif;
+}
+table td {
+	padding:			4px 0;
+}
 aside {
 	width:				960px;
 	height:				320px;
@@ -105,9 +114,15 @@ aside {
 }
 
 /* 3. Classes */
+table .separator,
+table .title {
+	color:				#666;
+	font-size:			0.8rem;
+}
 table .data {
 	min-width:			240px;
 	text-align:			right;
+	padding-left:		1rem;
 	font-family:		Georgia, "Times New Roman", Times, serif;
 }
 
