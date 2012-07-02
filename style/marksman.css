@@ -5,6 +5,7 @@
 2. IDs
 3. Classes
 4. Pseudoclasses
+5. Media Queries
 ===== End =====
 */
 
@@ -116,6 +117,7 @@ table .separator,
 table .title {
 	color:				#666;
 	font-size:			0.8rem;
+	text-align:			left;
 }
 table .data {
 	min-width:			240px;
@@ -128,4 +130,41 @@ table .data {
 hgroup h1:hover {
 	bottom:				0;
 	text-shadow:		5px 5px 10px #bbb;
+}
+
+/* 5. Media Queries */
+@media screen and (max-width: 1000px) {
+	body { padding: 0 2rem; }
+	section > hgroup { width: 300px; }
+	section > article { width: 400px; }
+	hgroup h1 { font-size: 6rem; }
+	hgroup h2 { font-size: 1rem; }
+	aside, #copyleft { width: 100%; }
+}
+@media screen and (max-width: 720px) {
+	section > * { text-align: center; }
+	section > hgroup { width: 100%; }
+	section > article { width: 100%; }
+	hgroup h1 { font-size: 8rem; }
+	hgroup h2 { font-size: 1.5rem; word-spacing: 0.5rem; }
+	section {
+		-moz-box-orient:	vertical;
+		-moz-box-align:		center;
+		box-orient:			vertical;
+		box-align:			center;
+	}
+	article { margin-top: 2rem; }
+	table {
+		width:				100%;
+		float:				none;
+		margin:				auto;
+	}
+}
+@media screen and (max-width: 480px) {
+	body { padding: 0 1rem; }
+	hgroup h1 { font-size: 5rem; }
+	hgroup h2 { font-size: 1rem; word-spacing: 0; }
+	table caption { font-size: 1.2rem; }
+	table .data { min-width: 200px; font-size: 0.8rem; }
+	#copyleft { font-size: 0.5rem; }
 }
