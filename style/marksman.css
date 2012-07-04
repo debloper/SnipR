@@ -89,6 +89,7 @@ table caption {
 table td {
 	padding:			4px 0;
 }
+aside { position: relative; }
 aside > * {
 	width:				960px;
 	height:				320px;
@@ -105,6 +106,30 @@ iframe[src] { display: block; }
 	font-size:			0.8rem;
 	text-align:			right;
 }
+#note {
+	top:				0;
+	left:				-moz-calc((100% - 960px)/2);
+	left:				calc((100% - 960px)/2);
+	color:				#fff;
+	border:				none;
+	height:				auto;
+	margin:				0;
+	display:			none;
+	padding:			1rem 2rem;
+	position:			absolute;
+	font-size:			0.8rem;
+	box-shadow:			none;
+	text-align:			right;
+	background:			-moz-linear-gradient(top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+	background:			linear-gradient(top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+	text-shadow:		0 1px 0 #333;
+}
+#note a {
+	color:				#03C;
+	font-weight:		bold;
+	text-shadow:		0 0 2px rgba(255,255,255,0.5);
+}
+iframe[src] + #note { display: block; }
 #initWhois {
 	color:				#36C;
 	padding:			0 4px;
@@ -148,6 +173,7 @@ hgroup h1:hover {
 }
 #initWhois:hover { color: #E73; }
 #initWhois:active { color: #C00; }
+#note a:hover { color: #C00; }
 
 /* 5. Media Queries */
 @media screen and (max-width: 1000px) {
@@ -157,6 +183,7 @@ hgroup h1:hover {
 	hgroup h1 { font-size: 6rem; }
 	hgroup h2 { font-size: 1rem; }
 	aside > *, #copyleft { width: 100%; }
+	#note { left: 0; }
 }
 @media screen and (max-width: 720px) {
 	section > * { text-align: center; }
