@@ -1,51 +1,41 @@
-function init() {
-	hostKey = getIP(window.parent.location);
-	ipApi = "http://api.ipinfodb.com/v2/ip_query.php";
-	ipKey = "?key=555040b100942b17a9d199d9759b3b46afa36fa05d6e72408c51cfeaf70d7344";
-	ipQuery = "&output=json&timezone=true&callback=sniprJsonpData&ip=";
-	queryUrl = ipApi + ipKey + ipQuery + hostKey["IP"] +"&rand="+ Math.random();
-	var sniprJsonp = document.createElement('script');
-	sniprJsonp.type = "text/javascript";
-	sniprJsonp.src = queryUrl;
-	document.getElementsByTagName('head')[0].appendChild(sniprJsonp);
-}
+var snipr = {
+	target: {},
 
-function getIP(host) {
-	hashedIP = host.hash;
-	IP = hashedIP.replace("#","");
-	queryHOST = host.search;
-	HOST = queryHOST.replace("?","");
-	
-	host_details = {
-		"IP" : IP,
-		"HOST" : HOST
-	}
-	return host_details;
-}
+	getIP: function(target) {
+		var IP = target.hash.replace("#","")
+		,	HOST = target.search.replace("?","");
 
-function sniprJsonpData(info) {
-	pushDOM.createNodes(hostKey,info);
-	pushDOM.mapInitialize(info.Latitude, info.Longitude);
-}
-
-var pushDOM = {
-	createNodes: function(arg1, arg2) {
-		pushDOM.pushHostData(arg1);
-		pushDOM.pushLocationData(arg2);
-		pushDOM.pushTimezoneData(arg2);
+		return {
+			"IP" : IP,
+			"HOST" : HOST
+		}
 	},
 
-	pushHostData: function(arg) {
+	processResponse:  function(info) {
+		console.log(info);
+		DOM.createNodes(snipr.target, info);
+		DOM.initMap(info.Latitude, info.Longitude);
+	}
+};
+
+var DOM = {
+	createNodes: function(arg1, arg2) {
+		DOM.pushHostName(arg1);
+		DOM.pushLocation(arg2);
+		DOM.pushTimezone(arg2);
+	},
+
+	pushHostName: function(arg) {
 		document.getElementById("hostip").innerHTML = arg.IP;
 		document.getElementById("hosturl").innerHTML = arg.HOST;
 	},
 
-	pushLocationData: function(args) {
+	pushLocation: function(args) {
 		document.getElementById("location").innerHTML = args.City + ", " + args.RegionName;
 		document.getElementById("country").innerHTML = args.CountryName + " [" + args.CountryCode + "]";
 	},
 
-	pushTimezoneData: function(args) {
+	pushTimezone: function(args) {
 		offset = args.Gmtoffset;
 		if(offset<0){ offset *= (-1); }
 		Min = ((offset)-(offset%60))/60;
@@ -58,7 +48,7 @@ var pushDOM = {
 		document.getElementById("timezone").innerHTML = args.TimezoneName + " [" + HrMin + "]";
 	},
 
-	mapInitialize: function(lat, lng) {
+	initMap: function(lat, lng) {
 		var latlng = new google.maps.LatLng(lat, lng);
 		var myOptions = {
 			zoom: 10,
@@ -67,4 +57,17 @@ var pushDOM = {
 		};
 		var map = new google.maps.Map(document.getElementById("Gmap"), myOptions);
 	}
-}
+};
+
+(function() {
+	snipr.target = snipr.getIP(window.parent.location);
+
+	var ipApi = "http://api.ipinfodb.com/v2/ip_query.php"
+	,	ipKey = "?key=4446346aef4454ce2826b0121ae23e1d29dabfe57cc8d97b678136769ab9a270"
+	,	ipQuery = "&output=json&timezone=true&callback=snipr.processResponse&ip=";
+
+	console.log(snipr.target);
+	var jsonp = document.createElement('script');
+	jsonp.src = ipApi + ipKey + ipQuery + snipr.target["IP"] +"&rand="+ Math.random();
+	document.getElementsByTagName('head')[0].appendChild(jsonp);
+})();
