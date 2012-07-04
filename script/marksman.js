@@ -14,6 +14,7 @@ var snipr = {
 	processResponse:  function(info) {
 		DOM.createNodes(snipr.target, info);
 		DOM.initMap(info.Latitude, info.Longitude);
+		DOM.initWhois("show");
 	}
 };
 
@@ -25,9 +26,9 @@ var DOM = {
 	},
 
 	pushHostName: function(arg) {
-		var whois = 'Get <a href="http://who.is/whois/' +
-					arg.HOST + '" target="_blank">whois</a> ' +
-					'data (opens in new tab)';
+		var whois = 'Check <span id="initWhois">whois</span> ' +
+					'data here, or <a href="http://who.is/whois/' +
+					arg.HOST + '" target="_blank">open in new tab</a>';
 		document.getElementById("whois").innerHTML = whois;
 		document.getElementById("hostip").innerHTML = arg.IP;
 		document.getElementById("hosturl").innerHTML = arg.HOST;
@@ -59,6 +60,29 @@ var DOM = {
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 		new google.maps.Map(document.getElementById("Gmap"), myOptions);
+	},
+
+	initWhois: function(option) {
+		var trigger = document.getElementById("initWhois");
+		if ( option == "show" ) {
+			trigger.removeEventListener("click", DOM.hideWhois);
+			trigger.addEventListener("click", DOM.showWhois);
+		} else if ( option == "hide" ) {
+			trigger.removeEventListener("click", DOM.showWhois);
+			trigger.addEventListener("click", DOM.hideWhois);
+		}
+	},
+
+	showWhois: function() {
+		var iframe = document.getElementsByTagName("iframe")[0];
+		iframe.src = "http://who.is/whois/" + snipr.target.HOST;
+		DOM.initWhois("hide");
+	},
+
+	hideWhois: function() {
+		var iframe = document.getElementsByTagName("iframe")[0];
+		iframe.removeAttribute("src");
+		DOM.initWhois("show");
 	}
 };
 
