@@ -98,6 +98,18 @@ aside {
 }
 
 /* 2. IDs */
+#whois {
+	padding:			4px 0;
+	font-size:			0.8rem;
+	text-align:			right;
+}
+#whois a {
+	color:				#36C;
+	padding:			0 4px;
+	border:				1px solid #ccc;
+	border-radius:		3px;
+	font-weight:		normal;
+}
 #copyleft {
 	width:				960px;
 	margin:				auto;
@@ -130,6 +142,11 @@ table .data {
 hgroup h1:hover {
 	bottom:				0;
 	text-shadow:		5px 5px 10px #bbb;
+}
+#whois a:hover {
+	color:				#fff;
+	border-color:		#468;
+	background-color:	#369;
 }
 
 /* 5. Media Queries */

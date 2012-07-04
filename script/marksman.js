@@ -25,6 +25,10 @@ var DOM = {
 	},
 
 	pushHostName: function(arg) {
+		var whois = 'Get <a href="http://who.is/whois/' +
+					arg.HOST + '" target="_blank">whois</a> ' +
+					'data (opens in new tab)';
+		document.getElementById("whois").innerHTML = whois;
 		document.getElementById("hostip").innerHTML = arg.IP;
 		document.getElementById("hosturl").innerHTML = arg.HOST;
 	},
