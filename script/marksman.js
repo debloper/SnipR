@@ -29,42 +29,42 @@ function sniprJsonpData(info) {
 }
 
 var pushDOM = {
-  createNodes: function(arg1, arg2) {
-	  pushDOM.pushHostData(arg1);
-	  pushDOM.pushLocationData(arg2);
-	  pushDOM.pushTimezoneData(arg2);
-  },
-  
-  pushHostData: function(arg) {
-		  document.getElementById("hostip").innerHTML = arg.IP;
-		  document.getElementById("hosturl").innerHTML = arg.HOST;
-  },
-  
-  pushLocationData: function(args) {
-	  document.getElementById("location").innerHTML = args.City + ", " + args.RegionName;
-	  document.getElementById("country").innerHTML = args.CountryName + " [" + args.CountryCode + "]";
-  },
-  
-  pushTimezoneData: function(args) {
-	  offset = args.Gmtoffset;
-	  if(offset<0){ offset *= (-1); }
-	  Min = ((offset)-(offset%60))/60;
-	  Hr = (Min-(Min%60))/60;
-	  Min = Min - Hr*60;
-	  if(Hr<10) {Hr = "0"+Hr};
-	  if(Min<10) {Min = "0"+Min}
-	  HrMin =  Hr + ":" + Min;
-	  if(args.Gmtoffset<0) {HrMin = "-" + HrMin}
-	  document.getElementById("timezone").innerHTML = args.TimezoneName + " [" + HrMin + "]";
-  },
-  
-  mapInitialize: function(lat, lng) {
-	var latlng = new google.maps.LatLng(lat, lng);
-	var myOptions = {
-		zoom: 10,
-		center: latlng,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	};
-	var map = new google.maps.Map(document.getElementById("Gmap"), myOptions);
-  }
+	createNodes: function(arg1, arg2) {
+		pushDOM.pushHostData(arg1);
+		pushDOM.pushLocationData(arg2);
+		pushDOM.pushTimezoneData(arg2);
+	},
+
+	pushHostData: function(arg) {
+		document.getElementById("hostip").innerHTML = arg.IP;
+		document.getElementById("hosturl").innerHTML = arg.HOST;
+	},
+
+	pushLocationData: function(args) {
+		document.getElementById("location").innerHTML = args.City + ", " + args.RegionName;
+		document.getElementById("country").innerHTML = args.CountryName + " [" + args.CountryCode + "]";
+	},
+
+	pushTimezoneData: function(args) {
+		offset = args.Gmtoffset;
+		if(offset<0){ offset *= (-1); }
+		Min = ((offset)-(offset%60))/60;
+		Hr = (Min-(Min%60))/60;
+		Min = Min - Hr*60;
+		if(Hr<10) {Hr = "0"+Hr};
+		if(Min<10) {Min = "0"+Min}
+		HrMin =  Hr + ":" + Min;
+		if(args.Gmtoffset<0) {HrMin = "-" + HrMin}
+		document.getElementById("timezone").innerHTML = args.TimezoneName + " [" + HrMin + "]";
+	},
+
+	mapInitialize: function(lat, lng) {
+		var latlng = new google.maps.LatLng(lat, lng);
+		var myOptions = {
+			zoom: 10,
+			center: latlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById("Gmap"), myOptions);
+	}
 }
