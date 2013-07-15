@@ -79,7 +79,6 @@ table td { padding: 4px 0; }
 aside { position: relative; }
 aside > * {
 	width:				960px;
-	height:				320px;
 	margin:				3rem auto 0;
 	border:				1px solid #666;
 	box-shadow:			8px 8px 32px rgba(0,0,0,0.25);
@@ -91,13 +90,20 @@ aside > * {
 	font-size:			0.8rem;
 	text-align:			right;
 }
-#initWhois {
+#showWhoIs {
 	color:				#36C;
 	padding:			0 4px;
 	border:				1px solid #ccc;
 	border-radius:		3px;
 	font-weight:		normal;
 	cursor:				pointer;
+}
+#Gmap { height: 320px; }
+#iam {
+	display:			none;
+	padding:			1rem;
+	text-align:			center;
+	white-space:		pre-wrap;
 }
 #copyleft {
 	width:				960px;
@@ -132,8 +138,8 @@ hgroup h1:hover {
 	bottom:				0;
 	text-shadow:		5px 5px 10px #bbb;
 }
-#initWhois:hover { color: #E73; }
-#initWhois:active { color: #C00; }
+#showWhoIs:hover { color: #E73; }
+#showWhoIs:active { color: #C00; }
 
 /* 5. Media Queries */
 @media screen and (max-width: 1000px) {

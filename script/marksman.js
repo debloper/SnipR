@@ -26,30 +26,30 @@ var DOM = {
 	},
 
 	pushHostName: function(arg) {
-		var whois = 'Check <span id="initWhois">whois</span> ' +
-					'data here, or <a href="http://who.is/whois/' +
-					arg.HOST + '" target="_blank">open in new tab</a>';
+		var whois = 'Expand <span id="showWhoIs">whois</span> ' +
+					'data (or, <a href="http://whoiz.herokuapp.com/lookup?url=' +
+					arg.HOST + '" target="_blank">open in a new tab</a>)';
 		document.getElementById("whois").innerHTML = whois;
 		document.getElementById("hostip").innerHTML = arg.IP;
 		document.getElementById("hosturl").innerHTML = arg.HOST;
 	},
 
-	pushLocation: function(args) {
-		document.getElementById("location").innerHTML = args.City + ", " + args.RegionName;
-		document.getElementById("country").innerHTML = args.CountryName + " [" + args.CountryCode + "]";
+	pushLocation: function(arg) {
+		document.getElementById("location").innerHTML = arg.City + ", " + arg.RegionName;
+		document.getElementById("country").innerHTML = arg.CountryName + " [" + arg.CountryCode + "]";
 	},
 
-	pushTimezone: function(args) {
-		var offset = Math.abs(args.Gmtoffset)
+	pushTimezone: function(arg) {
+		var offset = Math.abs(arg.Gmtoffset)
 		,	Min = Math.floor(offset/60)
 		,	Hr = Math.floor(Min/60);
 
 		Min = (Min - (Hr * 60));
 		if ( Hr < 10 ) { Hr = "0" + Hr; }
-		if ( args.Gmtoffset < 0 ) { Hr = "-" + Hr; }
+		if ( arg.Gmtoffset < 0 ) { Hr = "-" + Hr; }
 		if ( Min < 10 ) { Min = "0" + Min }
 
-		document.getElementById("timezone").innerHTML = args.TimezoneName + " [" + Hr + ":" + Min + "]";
+		document.getElementById("timezone").innerHTML = arg.TimezoneName + " [" + Hr + ":" + Min + "]";
 	},
 
 	initMap: function(lat, lng) {
@@ -63,7 +63,7 @@ var DOM = {
 	},
 
 	initWhois: function(option) {
-		var trigger = document.getElementById("initWhois");
+		var trigger = document.getElementById("showWhoIs");
 		if ( option == "show" ) {
 			trigger.removeEventListener("click", DOM.hideWhois);
 			trigger.addEventListener("click", DOM.showWhois);
@@ -74,14 +74,23 @@ var DOM = {
 	},
 
 	showWhois: function() {
-		var iframe = document.getElementsByTagName("iframe")[0];
-		iframe.src = "http://who.is/whois/" + snipr.target.HOST;
+		var container = document.getElementById("iam");
+		if (!container.innerHTML) {
+			var xhr = new XMLHttpRequest()
+			,	url = "http://whoiz.herokuapp.com/lookup.json?url=" + snipr.target.HOST;
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState === 4 && xhr.status === 200)
+					container.innerHTML = JSON.parse(xhr.responseText);
+			};
+			xhr.open('GET', url);
+			xhr.send();
+		}
+		container.style.display = "block";
 		DOM.initWhois("hide");
 	},
 
 	hideWhois: function() {
-		var iframe = document.getElementsByTagName("iframe")[0];
-		iframe.removeAttribute("src");
+		document.getElementById("iam").style.display = "none";
 		DOM.initWhois("show");
 	}
 };
