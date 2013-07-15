@@ -10,10 +10,7 @@
 */
 
 /* 0. Reset */
-* {
-	-moz-box-sizing:  border-box;
-	box-sizing:      border-box;
-}
+* { -moz-box-sizing: border-box; }
 body {
 	color:				#333;
 	width:				100%;
@@ -40,15 +37,8 @@ section {
 	-moz-box-orient:	horizontal;
 	-moz-box-align:		end;
 	-moz-box-pack:		center;
-
-	display:			box;
-	box-orient:			horizontal;
-	box-align:			end;
-	box-pack:			center;
 }
-section > * {
-	width:				480px;
-}
+section > * { width: 480px; }
 hgroup h1 {
 	margin:				0;
 	font-size:			8rem;
@@ -74,21 +64,18 @@ hgroup h2 {
 hgroup div {
 	height:				0.5rem;
 	background:			-moz-radial-gradient(bottom, #ccc, rgba(255,255,255,0) 75%);
+	background:			radial-gradient(to top, #ccc, rgba(255,255,255,0) 75%);
 	position:			relative;
 	z-index:			2;
 }
-table {
-	float:				right;
-}
+table { float: right; }
 table caption {
 	color:				#c00;
 	font-size:			1.5rem;
 	text-align:			right;
 	font-family:		"Arial Black", Gadget, sans-serif;
 }
-table td {
-	padding:			4px 0;
-}
+table td { padding: 4px 0; }
 aside { position: relative; }
 aside > * {
 	width:				960px;
@@ -97,8 +84,6 @@ aside > * {
 	border:				1px solid #666;
 	box-shadow:			8px 8px 32px rgba(0,0,0,0.25);
 }
-iframe { display: none; }
-iframe[src] { display: block; }
 
 /* 2. IDs */
 #whois {
@@ -106,30 +91,6 @@ iframe[src] { display: block; }
 	font-size:			0.8rem;
 	text-align:			right;
 }
-#note {
-	top:				0;
-	left:				-moz-calc((100% - 960px)/2);
-	left:				calc((100% - 960px)/2);
-	color:				#fff;
-	border:				none;
-	height:				auto;
-	margin:				0;
-	display:			none;
-	padding:			1rem 2rem;
-	position:			absolute;
-	font-size:			0.8rem;
-	box-shadow:			none;
-	text-align:			right;
-	background:			-moz-linear-gradient(top, rgba(0,0,0,0.8), rgba(0,0,0,0));
-	background:			linear-gradient(top, rgba(0,0,0,0.8), rgba(0,0,0,0));
-	text-shadow:		0 1px 0 #333;
-}
-#note a {
-	color:				#03C;
-	font-weight:		bold;
-	text-shadow:		0 0 2px rgba(255,255,255,0.5);
-}
-iframe[src] + #note { display: block; }
 #initWhois {
 	color:				#36C;
 	padding:			0 4px;
@@ -143,7 +104,7 @@ iframe[src] + #note { display: block; }
 	margin:				auto;
 	padding:			2rem 0.5rem;
 	text-align:			center;
-	font-size:			0.6rem;
+	font-size:			1rem;
 }
 #copyleft span {
 	font-weight:		bold;
@@ -173,7 +134,6 @@ hgroup h1:hover {
 }
 #initWhois:hover { color: #E73; }
 #initWhois:active { color: #C00; }
-#note a:hover { color: #C00; }
 
 /* 5. Media Queries */
 @media screen and (max-width: 1000px) {
@@ -183,7 +143,6 @@ hgroup h1:hover {
 	hgroup h1 { font-size: 6rem; }
 	hgroup h2 { font-size: 1rem; }
 	aside > *, #copyleft { width: 100%; }
-	#note { left: 0; }
 }
 @media screen and (max-width: 720px) {
 	section > * { text-align: center; }
@@ -203,6 +162,7 @@ hgroup h1:hover {
 		float:				none;
 		margin:				auto;
 	}
+	#copyleft { font-size: 0.8rem; }
 }
 @media screen and (max-width: 480px) {
 	body { padding: 0 1rem; }
@@ -210,5 +170,5 @@ hgroup h1:hover {
 	hgroup h2 { font-size: 1rem; word-spacing: 0; }
 	table caption { font-size: 1.2rem; }
 	table .data { min-width: 200px; font-size: 0.8rem; }
-	#copyleft { font-size: 0.5rem; }
+	#copyleft { font-size: 0.6rem; }
 }
