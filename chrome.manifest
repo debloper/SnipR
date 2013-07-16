@@ -1,5 +1,5 @@
 content   snipr                 chrome/content/
 skin      snipr   classic/1.0   chrome/skin/
 
-override  chrome://snipr/content/firefox.xul     chrome://snipr/content/fennec.xul   application={a23983c0-fd0e-11dc-95ff-0800200c9a66}
+override  chrome://snipr/content/firefox.xul     chrome://snipr/content/droid.xul    application={aa3c5121-dab2-40e2-81ca-7ea25febc110}
 overlay   chrome://browser/content/browser.xul   chrome://snipr/content/firefox.xul

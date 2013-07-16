@@ -3,15 +3,15 @@
 <!DOCTYPE overlay>
 <overlay id="snipr-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-  <script type="application/javascript" src="chrome://snipr/content/overlay.js" />
+	<script type="application/javascript" src="chrome://snipr/content/overlay.js" />
 
-  <textbox id="urlbar">
-    <toolbarbutton id="snipr-scope"
-		insertafter="urlbar-icons"
-		oncommand="snipr.fire('trigger');"
-		onmouseover="snipr.crosshair.value = 'Fetching...'; snipr.fire('label');">
-	  <label id="snipr-crosshair" value="SnipR" />
-	</toolbarbutton>
-  </textbox>
+	<textbox id="urlbar">
+		<toolbarbutton id="snipr-scope"
+			insertafter="urlbar-icons"
+			oncommand="snipr.fire('trigger');"
+			onmouseover="snipr.crosshair.value = 'Fetching...'; snipr.fire('label');">
+			<label id="snipr-crosshair" value="SnipR" />
+		</toolbarbutton>
+	</textbox>
 
 </overlay>
