@@ -9,8 +9,11 @@ window.addEventListener("load", function(event) {
 }, false);
 
 window.addEventListener("load", function () {
+	window.BrowserApp.deck.addEventListener("TabSelect", function () {
+		snipr.host = window.BrowserApp.selectedTab.window.location.hostname;
+	}, false);
 	window.NativeWindow.menu.add("SnipR", null, function () {
-		window.NativeWindow.toast.show(window.BrowserApp.selectedTab.window.location.hostname, "long");
+		window.NativeWindow.toast.show(snipr.host, "long");
 	});
 }, false);
 
