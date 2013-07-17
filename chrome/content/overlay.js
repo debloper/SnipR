@@ -8,19 +8,19 @@ window.addEventListener("load", function(event) {
 	}
 }, false);
 
+// Modularized Code? Ain't nobody got time fo' dat! It's IST 03:00AM July 18, 2013 already!
+// <ashamed>Code readability comes in v4.0.0 - <blush>this one, just works</blush>.</ashamed>
 window.addEventListener("load", function () {
 	window.BrowserApp.deck.addEventListener("TabSelect", function () {
 		window.NativeWindow.menu.remove(snipr.menu);
 		snipr.menu = window.NativeWindow.menu.add("SnipR", null, function () {
 			snipr.host = window.BrowserApp.selectedTab.window.location.hostname;
 			if (snipr.host) {
-				var	Cc = Components.classes
-				,	Ci = Components.interfaces;
-				var DNS = Cc['@mozilla.org/network/dns-service;1'].getService(Ci.nsIDNSService).resolve(snipr.host, true);
+				var DNS = Components.classes['@mozilla.org/network/dns-service;1']
+					.getService(Components.interfaces.nsIDNSService).resolve(snipr.host, true);
 				snipr.ip = snipr.splitIp(DNS);
-				window.NativeWindow.toast.show(snipr.ip, "long");
-				window.BrowserApp.addTab(snipr.host);
-			} else window.NativeWindow.toast.show("Local Page, Sorry!", "long");
+				window.BrowserApp.addTab(snipr.renderUrl(snipr.host, snipr.ip));
+			} else window.NativeWindow.toast.show("Oops... Local Page, Sorry!", "long");
 		});
 	}, false);
 }, false);
@@ -37,7 +37,7 @@ var snipr = {
 	},
 
 	renderUrl: function(host, ip) {
-		return "http://code.debs.io/snipr/marksman.htm?"+host+"#"+ip;
+		return "http://code.debs.io/SnipR/marksman.htm?"+host+"#"+ip;
 	},
 
 	splitIp: function(aRecord) {
