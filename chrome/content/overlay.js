@@ -10,7 +10,7 @@ window.addEventListener("load", function(event) {
 
 window.addEventListener("load", function () {
 	window.NativeWindow.menu.add("SnipR", null, function () {
-		window.NativeWindow.toast.show("Fire at Will!", "long");
+		window.NativeWindow.toast.show(window.BrowserApp.selectedTab.window.location.hostname, "long");
 	});
 }, false);
 
