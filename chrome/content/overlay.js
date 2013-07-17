@@ -14,7 +14,11 @@ window.addEventListener("load", function () {
 		snipr.menu = window.NativeWindow.menu.add("SnipR", null, function () {
 			snipr.host = window.BrowserApp.selectedTab.window.location.hostname;
 			if (snipr.host) {
-				window.NativeWindow.toast.show(snipr.host, "long");
+				var	Cc = Components.classes
+				,	Ci = Components.interfaces;
+				var DNS = Cc['@mozilla.org/network/dns-service;1'].getService(Ci.nsIDNSService).resolve(snipr.host, true);
+				snipr.ip = snipr.splitIp(DNS);
+				window.NativeWindow.toast.show(snipr.ip, "long");
 				window.BrowserApp.addTab(snipr.host);
 			} else window.NativeWindow.toast.show("Local Page, Sorry!", "long");
 		});
