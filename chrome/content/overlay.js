@@ -10,11 +10,15 @@ window.addEventListener("load", function(event) {
 
 window.addEventListener("load", function () {
 	window.BrowserApp.deck.addEventListener("TabSelect", function () {
-		snipr.host = window.BrowserApp.selectedTab.window.location.hostname;
+		window.NativeWindow.menu.remove(snipr.menu);
+		snipr.menu = window.NativeWindow.menu.add("SnipR", null, function () {
+			snipr.host = window.BrowserApp.selectedTab.window.location.hostname;
+			if (snipr.host) {
+				window.NativeWindow.toast.show(snipr.host, "long");
+				window.BrowserApp.addTab(snipr.host);
+			} else window.NativeWindow.toast.show("Local Page, Sorry!", "long");
+		});
 	}, false);
-	window.NativeWindow.menu.add("SnipR", null, function () {
-		window.NativeWindow.toast.show(snipr.host, "long");
-	});
 }, false);
 
 var snipr = {
