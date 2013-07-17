@@ -1,25 +1,28 @@
-window.addEventListener("load", function(event) { snipr.onLoad(event) }, false);
+window.addEventListener("load", function(event) {
+	if (gBrowser) {
+		snipr.desktop = true;
+		snipr.crosshair = document.getElementById("snipr-crosshair");
+		gBrowser.tabContainer.addEventListener("TabSelect", function(event) {
+			snipr.crosshair.value = "SnipR";
+		}, false);
+	}
+}, false);
+
+window.addEventListener("load", function () {
+	window.NativeWindow.menu.add("SnipR", null, function () {
+		window.NativeWindow.toast.show("Fire at Will!", "long");
+	});
+}, false);
 
 var snipr = {
-	firefox: false,
+	desktop: false,
 	crosshair: {},
 	host: "",
 
-	onLoad: function(event) {
-		this.initialized = true;
-		this.strings = document.getElementById("snipr-overlay");
-		if ( gBrowser ) {
-			snipr.firefox = true;
-			snipr.crosshair = document.getElementById("snipr-crosshair");
-			gBrowser.tabContainer.addEventListener("TabSelect",
-				function(event) { snipr.crosshair.value = "SnipR"; }, false);
-		}
-	},
-
 	resolveHost: function() {
-		if (snipr.firefox) {
+		if (snipr.desktop) {
 			return gBrowser.contentWindow.location.hostname;
-		} else return getBrowser().currentURI.host;
+		} else return "Firefox Mobile";
 	},
 
 	renderUrl: function(host, ip) {
@@ -28,7 +31,8 @@ var snipr = {
 
 	splitIp: function(aRecord) {
 		var IPs = new Array();
-		while (aRecord && aRecord.hasMore()) { IPs.push(aRecord.getNextAddrAsString()); }
+		while (aRecord && aRecord.hasMore())
+			IPs.push(aRecord.getNextAddrAsString());
 		return IPs[0];
 	},
 
@@ -45,7 +49,7 @@ var snipr = {
 		onLookupComplete : function(aRequest, aRecord, aStatus) {
 			if (aRecord) {
 				var host = snipr.host, ip = snipr.splitIp(aRecord);
-				if (snipr.firefox) {
+				if (snipr.desktop) {
 					gBrowser.selectedTab = gBrowser.addTab(
 											snipr.renderUrl(host, ip), {
 											referrerURI:gBrowser.currentURI,
@@ -57,14 +61,23 @@ var snipr = {
 	},
 
 	fire: function(target) {
+		if (target == "label") {
+			if (snipr.crosshair.value.split(".").length == 4) return;
+			else if (snipr.crosshair.value == "Local Page") return;
+			else snipr.crosshair.value = 'Fetching...';
+		}
+
+		var callBack = snipr[target]
+		,	Cc = Components.classes
+		,	Ci = Components.interfaces
+		,	theThread = Cc["@mozilla.org/thread-manager;1"]
+						.getService(Ci.nsIThreadManager).currentThread;
+
 		snipr.host = snipr.resolveHost();
-		var callBack = snipr[target];
-		var Cc = Components.classes, Ci = Components.interfaces;
-		var theThread = Cc["@mozilla.org/thread-manager;1"]
-			.getService(Ci.nsIThreadManager).currentThread;
+
 		try {
 			Cc['@mozilla.org/network/dns-service;1'].getService(Ci.nsIDNSService)
 			.asyncResolve(snipr.host, true, callBack, theThread);
-		} catch (e) { snipr.crosshair.value = "Local Page"; }
+		} catch (error) { snipr.crosshair.value = "Local Page"; }
 	}
 };
